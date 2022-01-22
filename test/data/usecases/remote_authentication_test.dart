@@ -4,23 +4,11 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
 import 'package:clean_flutter_app/domain/usecases/usecases.dart';
+
+import 'package:clean_flutter_app/data/http/http.dart';
+import 'package:clean_flutter_app/data/usecases/usecases.dart';
+
 import './remote_authentication_test.mocks.dart';
-
-class RemoteAuthentication {
-  final HttpClient httpClient;
-  final String url;
-
-  RemoteAuthentication({required this.httpClient, required this.url});
-
-  Future<void> auth(AuthenticationParams params) async {
-    final body = {'email': params.email, 'password': params.password};
-    await httpClient.request(url: url, method: 'post', body: body);
-  }
-}
-
-abstract class HttpClient {
-  Future<void> request({required String url, required String method, Map body});
-}
 
 @GenerateMocks([HttpClient])
 void main() {
