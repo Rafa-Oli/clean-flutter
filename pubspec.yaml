@@ -38,6 +38,7 @@ dependencies:
 dev_dependencies:
   mockito:
   faker:
+  http:
   flutter_test:
     sdk: flutter
 
